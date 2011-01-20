@@ -251,7 +251,7 @@ if ($haclgUseFeaturesForGroupPermissions === true) {
 	$haclgFeature['administrate']['permissibleBy'] = "admin"; // The other alternative would be "all"
 	$haclgFeature['administrate']['default'] = "deny"; // The other alternative would be "deny"
 	
-	$haclgFeature['technical']['systemfeatures'] = "bot|purge|minoredit|nominornewtalk|noratelimit|ipblock-exempt|proxyunbannable|autopatrol|apihighlimits|writeapi|suppressredirect|autoconfirmed|emailconfirmed";
+	$haclgFeature['technical']['systemfeatures'] = "purge|minoredit|nominornewtalk|noratelimit|ipblock-exempt|proxyunbannable|autopatrol|apihighlimits|writeapi|suppressredirect|autoconfirmed|emailconfirmed";
 	$haclgFeature['technical']['name'] = "Technical";
 	$haclgFeature['technical']['description'] = "This is the feature for technical issues.";
 	$haclgFeature['technical']['permissibleBy'] = "admin"; // The other alternative would be "all"
