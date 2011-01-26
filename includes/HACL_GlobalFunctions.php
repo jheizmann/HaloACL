@@ -133,6 +133,8 @@ function haclfSetupExtension() {
     $wgHooks['SpecialMovepageAfterMove'][] = 'HACLParserFunctions::articleMove';
 	$wgHooks['SkinTemplateContentActions'][] = 'haclfRemoveProtectTab';
     $wgHooks['UserEffectiveGroups'][]  = 'HACLGroupPermissions::onUserEffectiveGroups';
+    $wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'HACLEvaluator::onBeforeParserFetchTemplateAndtitle';
+    
 
     $wgHooks['FilterQueryResults'][] = 'HACLResultFilter::filterResult';
     $wgHooks['SmwhNewBaseStore'][] = 'haclfOnSmwhNewBaseStore';
@@ -585,7 +587,7 @@ function haclfGetUserID($user = null) {
                     } else {
                     // name of user given
                         $etc = haclfDisableTitlePatch();
-                        $userID = User::idFromName($user);
+                        $userID = (int) User::idFromName($user);
                         haclfRestoreTitlePatch($etc);
                         if (!$userID) {
                             $userID = false;
