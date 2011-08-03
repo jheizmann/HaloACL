@@ -3,7 +3,7 @@ HaloACL extension ChangeLog
 Version 1.4 patchlevel 1
 
   FEATURE:
-  	
+  	- Added profiling information to important functions of HaloACL 
   CHANGES:
   	
   BUGFIXES: (Bug numbers according to http://smwforum.ontoprise.com/smwbugs/)
