@@ -2,7 +2,7 @@
 <deploydescriptor>
 	<global>
 		<version>140</version>
-		<patchlevel>1</patchlevel>
+		<patchlevel>2</patchlevel>
 		<id>haloacl</id>
 		<vendor>Ontoprise GmbH</vendor>
 		<maintainer>Ontoprise GmbH</maintainer>
@@ -18,7 +18,6 @@
             <dependency from="100" to="100">arclibrary</dependency>
 			<dependency from="150" optional="true">smwhalo</dependency>
 		</dependencies>
-		<patchlevel>1</patchlevel>
 		<notice>
 		"Your Wiki contains now new pages. Since existing pages can make
 		use of newly imported pages (e.g. templates), it is necessary to
