@@ -17,7 +17,7 @@
             <dependency from="100" to="200">arclibrary</dependency>
 			<dependency from="150" optional="true">smwhalo</dependency>
 		</dependencies>
-		<patchlevel>2</patchlevel>
+		<patchlevel>3</patchlevel>
 		<notice>
 		"Your Wiki contains now new pages. Since existing pages can make
 		use of newly imported pages (e.g. templates), it is necessary to
