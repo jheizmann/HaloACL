@@ -1,5 +1,10 @@
 HaloACL extension ChangeLog
 ===========================
+Version 1.6
+
+	CHANGES:
+		- Adapted to MW 1.17 and SMW 1.6
+
 Version 1.5
 
   FEATURE:
