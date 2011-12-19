@@ -16,6 +16,9 @@
  * with this program.If not, see <http://www.gnu.org/licenses/>.
  *
  */
+if ( isset( $_SERVER ) && array_key_exists( 'REQUEST_METHOD', $_SERVER ) ) {
+	die( "This script must be run from the command line\n" );
+}
 
 /**
  * @file
@@ -123,8 +126,6 @@ class TestSMWStoreSuite extends PHPUnit_Framework_TestSuite
 <<<ACL
 This property is not accessible by RestrictedUser.
 
-[[has domain and range::; | ]]
-
 [[has type::Page| ]]
 ACL
 ,
@@ -132,8 +133,6 @@ ACL
 			'Property:NormalProperty' =>
 <<<ACL
 There are no access restrictions for this property.
-
-[[has domain and range::; | ]]
 
 [[has type::Page| ]]
 ACL
@@ -674,16 +673,17 @@ QUERY;
 		    'query'		=> $query,
 			'format'	=> "table",
     		'user'		=> "NormalUser",
-			'printouts' => array('s', 'o'),
+//			'printouts' => array('s', 'o'),
+			'printouts' => array(),
     		'result'	=> array(
-							array("s" => "PageWithProtectedProperties",
-							      "o" => "ProtectedPage"),
-							array("s" => "PageWithProtectedProperties",
-							      "o" => "NormalPage"),
-							array("s" => "ProtectedPage",
-							      "o" => "ProtectedPage"),
-							array("s" => "ProtectedPage",
-							      "o" => "NormalPage")
+							array("S" => "PageWithProtectedProperties",
+							      "O" => "ProtectedPage"),
+							array("S" => "PageWithProtectedProperties",
+							      "O" => "NormalPage"),
+							array("S" => "ProtectedPage",
+							      "O" => "ProtectedPage"),
+							array("S" => "ProtectedPage",
+							      "O" => "NormalPage")
 						)
 		));
 
@@ -691,14 +691,15 @@ QUERY;
 		    'query'		=> $query,
 			'format'	=> "table",
     		'user'		=> "RestrictedUser",
-			'printouts' => array('s', 'o'),
+//			'printouts' => array('s', 'o'),
+			'printouts' => array(),
     		'result'	=> array(
-							array("s" => "PageWithProtectedProperties",
-							      "o" => "NormalPage"),
-							array("s" => null,
-							      "o" => "NormalPage"),
-							array("s" => "PageWithProtectedProperties",
-							      "o" => null)
+							array("S" => "PageWithProtectedProperties",
+							      "O" => "NormalPage"),
+							array("S" => null,
+							      "O" => "NormalPage"),
+							array("S" => "PageWithProtectedProperties",
+							      "O" => null)
 						)
 		));
 		
@@ -749,16 +750,16 @@ QUERY;
 		    'query'		=> $query,
 			'format'	=> "table",
     		'user'		=> "NormalUser",
-			'printouts' => array('s', 'o'),
+			'printouts' => array(),
     		'result'	=> array(
-							array("s" => "PageWithProtectedProperties",
-							      "o" => "ProtectedPage"),
-							array("s" => "PageWithProtectedProperties",
-							      "o" => "NormalPage"),
-							array("s" => "ProtectedPage",
-							      "o" => "ProtectedPage"),
-							array("s" => "ProtectedPage",
-							      "o" => "NormalPage")
+							array("S" => "PageWithProtectedProperties",
+							      "O" => "ProtectedPage"),
+							array("S" => "PageWithProtectedProperties",
+							      "O" => "NormalPage"),
+							array("S" => "ProtectedPage",
+							      "O" => "ProtectedPage"),
+							array("S" => "ProtectedPage",
+							      "O" => "NormalPage")
 						)
 		));
 
@@ -766,7 +767,7 @@ QUERY;
 		    'query'		=> $query,
 			'format'	=> "table",
     		'user'		=> "RestrictedUser",
-			'printouts' => array('s', 'o'),
+			'printouts' => array(),
     		'result'	=> array()
 		));
 		
@@ -838,16 +839,16 @@ QUERY;
 		    'query'		=> $query,
 			'format'	=> "table",
     		'user'		=> "NormalUser",
-			'printouts' => array('s', 'o'),
+			'printouts' => array(),
     		'result'	=> array(
-							array("s" => "PageWithProtectedProperties",
-							      "o" => "ProtectedPage"),
-							array("s" => "PageWithProtectedProperties",
-							      "o" => "NormalPage"),
-							array("s" => "ProtectedPage",
-							      "o" => "ProtectedPage"),
-							array("s" => "ProtectedPage",
-							      "o" => "NormalPage")
+							array("S" => "PageWithProtectedProperties",
+							      "O" => "ProtectedPage"),
+							array("S" => "PageWithProtectedProperties",
+							      "O" => "NormalPage"),
+							array("S" => "ProtectedPage",
+							      "O" => "ProtectedPage"),
+							array("S" => "ProtectedPage",
+							      "O" => "NormalPage")
 						)
 		));
 
@@ -855,14 +856,14 @@ QUERY;
 		    'query'		=> $query,
 			'format'	=> "table",
     		'user'		=> "RestrictedUser",
-			'printouts' => array('s', 'o'),
+			'printouts' => array(),
     		'result'	=> array(
-							array("s" => "PageWithProtectedProperties",
-							      "o" => "NormalPage"),
-							array("s" => null,
-							      "o" => "NormalPage"),
-							array("s" => "PageWithProtectedProperties",
-							      "o" => null)
+							array("S" => "PageWithProtectedProperties",
+							      "O" => "NormalPage"),
+							array("S" => null,
+							      "O" => "NormalPage"),
+							array("S" => "PageWithProtectedProperties",
+							      "O" => null)
 						)
 		));
 			
