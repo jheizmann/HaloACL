@@ -1,5 +1,9 @@
 HaloACL extension ChangeLog
 ===========================
+Version 1.6 patchlevel 4
+  BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
+		16486 - Creating ACLs and Groups on different language is not possible
+
 Version 1.6 patchlevel 3
   BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
 		15972 - Approved revs 0.5.9 and halACL 1.5.0.3 are incompatible
