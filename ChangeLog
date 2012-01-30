@@ -1,5 +1,9 @@
 HaloACL extension ChangeLog
 ===========================
+Version 1.6 patchlevel 6
+  BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
+		16554 - HaloACL filter does not work on Special:Templates
+		
 Version 1.6 patchlevel 5
   BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
   		16544 - HaloACL not working with $wgLanguageCode="de"
