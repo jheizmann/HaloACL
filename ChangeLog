@@ -1,5 +1,9 @@
 HaloACL extension ChangeLog
 ===========================
+Version 1.6 patchlevel 7
+  BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
+		16555 - History: Catchable fatal error
+		
 Version 1.6 patchlevel 6
   BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
 		16554 - HaloACL filter does not work on Special:Templates
