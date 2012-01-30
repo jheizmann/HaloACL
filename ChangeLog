@@ -1,5 +1,9 @@
 HaloACL extension ChangeLog
 ===========================
+Version 1.6 patchlevel 5
+  BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
+  		16544 - HaloACL not working with $wgLanguageCode="de"
+  		
 Version 1.6 patchlevel 4
   BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
 		16486 - Creating ACLs and Groups on different language is not possible
