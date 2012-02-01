@@ -1,5 +1,10 @@
 HaloACL extension ChangeLog
 ===========================
+Version 1.6 patchlevel 8
+  BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
+		16461 - A column of a query result is duplicated
+		16543 - protecting properties feature seems not to be migrated to smw 1.6 yet
+
 Version 1.6 patchlevel 7
   BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
 		16555 - History: Catchable fatal error
