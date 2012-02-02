@@ -1,5 +1,9 @@
 HaloACL extension ChangeLog
 ===========================
+Version 1.6 patchlevel 10
+  BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
+		16592 - Check box icons are placed too high in the Global Permissions tab
+		
 Version 1.6 patchlevel 9
   BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
 		16186 - Special pages are not recognized for the whitelist
