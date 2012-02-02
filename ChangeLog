@@ -1,5 +1,9 @@
 HaloACL extension ChangeLog
 ===========================
+Version 1.6 patchlevel 9
+  BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
+		16186 - Special pages are not recognized for the whitelist
+		
 Version 1.6 patchlevel 8
   BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
 		16461 - A column of a query result is duplicated
