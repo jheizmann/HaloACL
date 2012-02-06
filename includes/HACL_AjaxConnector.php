@@ -809,7 +809,7 @@ HTML;
                 if (processType == "createAclTemplate"){
                     var protect = "Right";
                     YAHOO.haloacl.callAction("haclDoesArticleExists", {articletitle:$('create_acl_general_name').value,type:protect}, function(result){
-                        if (result.responseText != "true"){
+                        if (result.responseText == "true"){
                             step2callbackSecondCheck();
                         } else {
                             YAHOO.haloacl.notification.createDialogOk("content","","$tplexists",{
@@ -5485,63 +5485,69 @@ function haclDoesArticleExists($articlename,$protect) {
     global $haclgContLang,
     $wgCanonicalNamespaceNames;
 
+    $response = new AjaxResponse();
 
-    $template = $haclgContLang->getSDTemplateName();
-    $predefinedRightName = $haclgContLang->getPredefinedRightName();
-    $ns = $haclgContLang->getNamespaces();
-    $ns = $ns[HACL_NS_ACL];
-
-    if ($protect == "property") {
-        $articlename = "Property:".$articlename;
+    $peType = NULL;
+    switch (strtolower($protect)) {
+    	case 'property':
+    		if (!defined('SMW_NS_PROPERTY')) {
+    			// Property namespace must be defined
+    			$response->addText("false");
+    			return $response;
     }
-    if ($protect == "namespace") {
-        $response = new AjaxResponse();
-    	$namespaces = $wgCanonicalNamespaceNames;
-    	$namespaces[] = $haclgContLang->getLabelOfNSMain();
-        
-        if (array_intersect($namespaces,array($articlename))) {
-            $sd = new Article(Title::newFromText("$ns:$protect/$articlename"));
-            if ($sd->exists()) {
-                $response->addText("sdexisting");
-
-            } else {
-                $response->addText("true");
+    		$peType = HACLSecurityDescriptor::PET_PROPERTY;
+    		$title = Title::newFromText($articlename, SMW_NS_PROPERTY);
+    		$articlename = $title->getPrefixedText();
+    		break;
+    	case 'namespace':
+    		$peType = HACLSecurityDescriptor::PET_NAMESPACE;
+    		break;
+    	case 'category' :
+    		$peType = HACLSecurityDescriptor::PET_CATEGORY;
+    		$title = Title::newFromText($articlename, NS_CATEGORY);
+    		$articlename = $title->getPrefixedText();
+    		break;
+    	case 'page':
+    		$peType = HACLSecurityDescriptor::PET_PAGE;
+    		break;
+    	case 'right':
+    		$peType = HACLSecurityDescriptor::PET_RIGHT;
+    		break;
             }
-        } else {
+    if (!$peType) {
             $response->addText("false");
+    	return $response;
         }
+    
+    // Check if the element can be protected
+    $sdName = HACLSecurityDescriptor::nameOfSD($articlename, $peType);
+	if (!$sdName) {
+		// Invalid protected element
+		$response->addText("false");
         return $response;
     }
-    if ($protect == "category") {
-        $articlename = "Category:".$articlename;
-    }
-    if ($protect == "template") {
-        $articlename = "$ns:$template/".$articlename;
-    }
-    if ($protect == "Right") {
-        $articlename = "$ns:$predefinedRightName/".$articlename;
+	
+	if (!HACLSecurityDescriptor::existsPEforSDName($sdName)) {
+		$response->addText("false");
+		return $response;
     }
 
-    $response = new AjaxResponse();
-    $article = new Article(Title::newFromText($articlename));
-    if ($article->exists()) {
-    	$sdtitle = Title::newFromText("$ns:$protect/$articlename");
-        $sd = new Article($sdtitle);
-        if ($sd->exists()) {
+	// Check if the element is already protected.
+	$sdID = HACLSecurityDescriptor::idForSD($sdName);
+	if ($sdID) {
             $response->addText("sdexisting");
-        } else {
+		return $response;
+	}
+	$sdTitle = Title::newFromText($sdName);
         	// The article might not be protectable as it is already protected
         	// by a category or a namespace
         	global $wgUser;
-        	if (HACLEvaluator::checkSDCreation($sdtitle, $wgUser) === false) {
+    if (HACLEvaluator::checkSDCreation($sdTitle, $wgUser) === false) {
         		$response->addText("articleIsProtected");
-        	} else {
+		return $response;
+   	}
+    	
             	$response->addText("true");
-        	}
-        }
-    } else {
-        $response->addText("false");
-    }
     return $response;
 }
 

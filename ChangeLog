@@ -1,5 +1,9 @@
 HaloACL extension ChangeLog
 ===========================
+Version 1.6 patchlevel 11
+  BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
+		 16045 - SD can be overwritten by a version with lower case name
+
 Version 1.6 patchlevel 10
   BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
 		16592 - Check box icons are placed too high in the Global Permissions tab
