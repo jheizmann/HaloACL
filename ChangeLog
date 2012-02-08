@@ -1,5 +1,10 @@
 HaloACL extension ChangeLog
 ===========================
+
+Version 1.6 patchlevel 12
+  BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
+		 16648 - HaloACL + SF bug + solution: field protection on edit
+
 Version 1.6 patchlevel 11
   BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
 		 16045 - SD can be overwritten by a version with lower case name
