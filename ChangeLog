@@ -1,5 +1,9 @@
 HaloACL extension ChangeLog
 ===========================
+Version 1.6 patchlevel 14
+  BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
+		16690 - Notice in HACL_SMWStore.php
+
 Version 1.6 patchlevel 13
   BUGFIXES: (Bug numbers according to http://bugs.smwplus.com)
 		16461 - A column of a query result is duplicated 
